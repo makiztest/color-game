@@ -22,5 +22,10 @@ for (var i = 0; i < square.length; i++) {
         //grab color of click square
         var clickedColor = this.style.backgroundColor;
         //compare color to pickedColor
+        if (clickedColor === pickedColor) {
+            console.log("you got it")
+        } else {
+            console.log("try again")
+        }
     });
 }
