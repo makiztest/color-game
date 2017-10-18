@@ -14,18 +14,15 @@ var colorDisplay = document.querySelector("#colorDisplay");
 colorDisplay.textContent = pickedColor;
 
 for (var i = 0; i < square.length; i++) {
-    //add initial colors to squares
     square[i].style.backgroundColor = colors[i];
 
-    //add click listeners to square
     square[i].addEventListener("click", function() {
-        //grab color of click square
         var clickedColor = this.style.backgroundColor;
-        //compare color to pickedColor
         if (clickedColor === pickedColor) {
             console.log("you got it")
         } else {
-            console.log("try again")
+            //when choose the wrong color changed square color to body's background color
+            this.style.backgroundColor = "#232323"
         }
     });
 }
