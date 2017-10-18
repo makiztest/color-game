@@ -1,3 +1,20 @@
 body {
-    background: tomato;
+    background: #232323;
+}
+
+h1 {
+    color: white;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.square {
+    background-color: gold;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    float: left;
 }
