@@ -10,6 +10,7 @@ var colors = [
 var square = document.querySelectorAll(".square")
 var pickedColor = colors[3];
 var colorDisplay = document.querySelector("#colorDisplay");
+var messageDisplay = document.querySelector("#message");
 
 colorDisplay.textContent = pickedColor;
 
@@ -19,10 +20,12 @@ for (var i = 0; i < square.length; i++) {
     square[i].addEventListener("click", function() {
         var clickedColor = this.style.backgroundColor;
         if (clickedColor === pickedColor) {
-            console.log("you got it")
+            //when picked correct color show message correct
+            messageDisplay.textContent = "correct"
         } else {
-            //when choose the wrong color changed square color to body's background color
-            this.style.backgroundColor = "#232323"
+            //when picked wrong color show message try again
+            this.style.backgroundColor = "#232323";
+            messageDisplay.textContent = "try again";
         }
     });
 }
