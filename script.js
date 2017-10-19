@@ -1,4 +1,3 @@
-//add variable to check which mode is selected
 var numOfSquares = 6;
 var colors = generateRandomColor(numOfSquares);
 var square = document.querySelectorAll(".square");
@@ -13,7 +12,6 @@ var hardBtn = document.querySelector("#hard-btn");
 easyBtn.addEventListener("click", function() {
   easyBtn.classList.add("selected-mode");
   hardBtn.classList.remove("selected-mode");
-  //declare the number of squares generated for easy mode
   numOfSquares = 3;
   colors = generateRandomColor(numOfSquares);
   pickedColor = pickColor();
@@ -30,7 +28,6 @@ easyBtn.addEventListener("click", function() {
 hardBtn.addEventListener("click", function() {
   hardBtn.classList.add("selected-mode");
   easyBtn.classList.remove("selected-mode");
-  //declare the number of squares generated for hard mode
   numOfSquares = 6;
   colors = generateRandomColor(numOfSquares);
   pickedColor = pickColor();
