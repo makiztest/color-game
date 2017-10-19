@@ -17,11 +17,14 @@ easyBtn.addEventListener("click", function() {
     pickedColor = pickColor();
     //update colorDisplay
     colorDisplay.textContent = pickedColor;
-    //loop
-    for (var i = 0; i < colors.length; i++) {
+    //loop the square
+    for (var i = 0; i < square.length; i++) {
         //if 3 random colors is generated change bkg of those colors
         if(colors[i]) {
             square[i].style.backgroundColor = colors[i]
+        } else {
+            //if no color is generated change display to none
+            square[i].style.display = "none"
         }
     }
 })
