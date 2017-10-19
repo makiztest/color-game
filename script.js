@@ -11,6 +11,19 @@ var hardBtn = document.querySelector("#hard-btn")
 easyBtn.addEventListener("click", function() {
     easyBtn.classList.add("selected-mode")
     hardBtn.classList.remove("selected-mode")
+    //generate 3 random colors
+    colors = generateRandomColor(3);
+    //generate pickedColor
+    pickedColor = pickColor();
+    //update colorDisplay
+    colorDisplay.textContent = pickedColor;
+    //loop
+    for (var i = 0; i < colors.length; i++) {
+        //if 3 random colors is generated change bkg of those colors
+        if(colors[i]) {
+            square[i].style.backgroundColor = colors[i]
+        }
+    }
 })
 hardBtn.addEventListener("click", function() {
     hardBtn.classList.add("selected-mode")
@@ -18,20 +31,13 @@ hardBtn.addEventListener("click", function() {
 })
 
 reset.addEventListener("click", function() {
-    //generate all new colors
     colors = generateRandomColor(6);
-    //pick a new random colors from array
     pickedColor = pickColor();
-    //change colorDisplay to match picked color
     colorDisplay.textContent = pickedColor;
-    //change colors of squares
     for (var i = 0; i < square.length; i++) {
-        //this will result square[index number or array] with backgroundColor style of the generated random color
         square[i].style.backgroundColor = colors[i];
     }
-    //change backgroundColor
     h1.style.backgroundColor = "#232323"
-    //change textContent
     reset.textContent = "New Colors "
 })
 
