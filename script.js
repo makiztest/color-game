@@ -5,6 +5,17 @@ var colorDisplay = document.querySelector("#colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var reset = document.querySelector("#reset");
+var easyBtn = document.querySelector("#easy-btn")
+var hardBtn = document.querySelector("#hard-btn")
+
+easyBtn.addEventListener("click", function() {
+    easyBtn.classList.add("selected-mode")
+    hardBtn.classList.remove("selected-mode")
+})
+hardBtn.addEventListener("click", function() {
+    hardBtn.classList.add("selected-mode")
+    easyBtn.classList.remove("selected-mode")
+})
 
 reset.addEventListener("click", function() {
     //generate all new colors
