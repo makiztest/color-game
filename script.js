@@ -14,14 +14,14 @@ for (var i = 0; i < mode.length; i++) {
     mode[0].classList.remove("selected-mode");
     mode[1].classList.remove("selected-mode");
     this.classList.add("selected-mode");
-    this.textContent === "Easy" ? numOfSquares = 3: numOfSquares = 6;
+    this.textContent === "Easy" ? (numOfSquares = 3) : (numOfSquares = 6);
     resetMode();
   });
 }
 
 //reset the value based on selected mode
 function resetMode() {
-  colors = generateRandomColor(numOfSquares)
+  colors = generateRandomColor(numOfSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
@@ -34,11 +34,16 @@ function resetMode() {
 
 //reset button
 reset.addEventListener("click", function() {
-  colors = generateRandomColor(numOfSquares)
+  colors = generateRandomColor(numOfSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
-    square[i].style.backgroundColor = colors[i];
+    //if there is only 3 colors in the items array hide the three squares
+    if (colors[i]) {
+      square[i].style.backgroundColor = colors[i];
+    } else {
+      square[i].style.display = "none";
+    }
   }
   h1.style.backgroundColor = "steelblue";
   this.textContent = "New Colors ";
