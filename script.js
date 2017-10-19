@@ -31,6 +31,17 @@ easyBtn.addEventListener("click", function() {
 hardBtn.addEventListener("click", function() {
     hardBtn.classList.add("selected-mode")
     easyBtn.classList.remove("selected-mode")
+    //generate 6 random colors
+    colors = generateRandomColor(6);
+    //generate pickedColor
+    pickedColor = pickColor();
+    //update colorDisplay
+    colorDisplay.textContent = pickedColor;
+    //loop the square
+    for (var i = 0; i < square.length; i++) {
+            square[i].style.backgroundColor = colors[i]
+            square[i].style.display = "block"
+    }
 })
 
 reset.addEventListener("click", function() {
