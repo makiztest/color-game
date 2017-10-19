@@ -15,9 +15,13 @@ reset.addEventListener("click", function() {
     colorDisplay.textContent = pickedColor;
     //change colors of squares
     for (var i = 0; i < square.length; i++) {
-        square[i].style.backgroundColor = colors[i];
         //this will result square[index number or array] with backgroundColor style of the generated random color
+        square[i].style.backgroundColor = colors[i];
     }
+    //change backgroundColor
+    h1.style.backgroundColor = "#232323"
+    //change textContent
+    reset.textContent = "New Colors "
 })
 
 colorDisplay.textContent = pickedColor;
@@ -31,6 +35,7 @@ for (var i = 0; i < square.length; i++) {
             messageDisplay.textContent = "correct";
             changeAllColor(clickedColor);
             h1.style.backgroundColor = clickedColor;
+            reset.textContent = "Play again?"
         } else {
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "try again";
