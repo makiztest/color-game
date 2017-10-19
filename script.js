@@ -1,26 +1,55 @@
 var numOfSquares = 6;
-var colors = generateRandomColor(numOfSquares);
+var colors = [];
+var pickedColor;
 var square = document.querySelectorAll(".square");
-var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#color-display");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
-var reset = document.querySelector("#reset");
+var resetBtn = document.querySelector("#reset");
 var mode = document.querySelectorAll(".mode");
 
-//loop all mode class (good for future update if decided to add additional game modes)
-for (var i = 0; i < mode.length; i++) {
-  mode[i].addEventListener("click", function() {
-    mode[0].classList.remove("selected-mode");
-    mode[1].classList.remove("selected-mode");
-    this.classList.add("selected-mode");
-    this.textContent === "Easy" ? (numOfSquares = 3) : (numOfSquares = 6);
-    resetMode();
-  });
+//put everything that needs to run when the page loads
+init();
+
+function init() {
+  modeButtons();
+  squareOnClick();
+  reset();
+}
+
+function modeButtons() {
+  //mode button event listeners (good for future update if decided to add additional game modes)
+  for (var i = 0; i < mode.length; i++) {
+    mode[i].addEventListener("click", function() {
+      mode[0].classList.remove("selected-mode");
+      mode[1].classList.remove("selected-mode");
+      this.classList.add("selected-mode");
+      this.textContent === "Easy" ? (numOfSquares = 3) : (numOfSquares = 6);
+      reset();
+    });
+  }
+}
+
+function squareOnClick() {
+  //set up square listeners
+  for (var i = 0; i < square.length; i++) {
+    square[i].addEventListener("click", function() {
+      var clickedColor = this.style.backgroundColor;
+      if (clickedColor === pickedColor) {
+        messageDisplay.textContent = "Correct";
+        changeAllColor(clickedColor);
+        h1.style.backgroundColor = clickedColor;
+        reset.textContent = "Play Again?";
+      } else {
+        this.style.backgroundColor = "#232323";
+        messageDisplay.textContent = "Try Again";
+      }
+    });
+  }
 }
 
 //reset the value based on selected mode
-function resetMode() {
+function reset() {
   colors = generateRandomColor(numOfSquares);
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
@@ -38,30 +67,9 @@ function resetMode() {
 }
 
 //reset button
-reset.addEventListener("click", function() {
-  resetMode();
+resetBtn.addEventListener("click", function() {
+  reset();
 });
-
-//changed display text by pickedColor
-colorDisplay.textContent = pickedColor;
-
-//loop to generate square color
-for (var i = 0; i < square.length; i++) {
-  square[i].style.backgroundColor = colors[i];
-
-  square[i].addEventListener("click", function() {
-    var clickedColor = this.style.backgroundColor;
-    if (clickedColor === pickedColor) {
-      messageDisplay.textContent = "Correct";
-      changeAllColor(clickedColor);
-      h1.style.backgroundColor = clickedColor;
-      reset.textContent = "Play again?";
-    } else {
-      this.style.backgroundColor = "#232323";
-      messageDisplay.textContent = "try again";
-    }
-  });
-}
 
 //change all color of square when picked the match rgb color
 function changeAllColor(color) {
