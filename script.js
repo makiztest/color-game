@@ -25,7 +25,12 @@ function resetMode() {
   pickedColor = pickColor();
   colorDisplay.textContent = pickedColor;
   for (var i = 0; i < square.length; i++) {
-    square[i].style.backgroundColor = colors[i];
+    if (colors[i]) {
+      square[i].style.display = "block";
+      square[i].style.backgroundColor = colors[i];
+    } else {
+      square[i].style.display = "none";
+    }
   }
   h1.style.backgroundColor = "steelblue";
   reset.textContent = "New Colors ";
@@ -34,20 +39,7 @@ function resetMode() {
 
 //reset button
 reset.addEventListener("click", function() {
-  colors = generateRandomColor(numOfSquares);
-  pickedColor = pickColor();
-  colorDisplay.textContent = pickedColor;
-  for (var i = 0; i < square.length; i++) {
-    //if there is only 3 colors in the items array hide the three squares
-    if (colors[i]) {
-      square[i].style.backgroundColor = colors[i];
-    } else {
-      square[i].style.display = "none";
-    }
-  }
-  h1.style.backgroundColor = "steelblue";
-  this.textContent = "New Colors ";
-  messageDisplay.textContent = "";
+  resetMode();
 });
 
 //changed display text by pickedColor
