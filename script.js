@@ -6,26 +6,15 @@ var colorDisplay = document.querySelector("#color-display");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var reset = document.querySelector("#reset");
-//declare the var mode and select all
 var mode = document.querySelectorAll(".mode");
 
 //loop all mode class (good for future update if decided to add additional game modes)
 for (var i = 0; i < mode.length; i++) {
   mode[i].addEventListener("click", function() {
-    //remove the classlist of all modes
     mode[0].classList.remove("selected-mode");
     mode[1].classList.remove("selected-mode");
-    //add class for clicked mode
     this.classList.add("selected-mode");
-    //show how many squares to show
-    if (this.textContent === "Easy") {
-      numOfSquares = 3;
-    } else {
-      numOfSquares = 6;
-    }
-    //pick new colors
-    //pick a new pickedColor
-    //update page to show squares base on mode selected
+    this.textContent === "Easy" ? numOfSquares = 3: numOfSquares = 6;
     resetMode();
   });
 }
