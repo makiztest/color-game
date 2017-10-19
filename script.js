@@ -52,7 +52,8 @@ reset.addEventListener("click", function() {
     square[i].style.backgroundColor = colors[i];
   }
   h1.style.backgroundColor = "steelblue";
-  reset.textContent = "New Colors ";
+  this.textContent = "New Colors ";
+  messageDisplay.textContent = "";
 });
 
 //changed display text by pickedColor
@@ -65,7 +66,7 @@ for (var i = 0; i < square.length; i++) {
   square[i].addEventListener("click", function() {
     var clickedColor = this.style.backgroundColor;
     if (clickedColor === pickedColor) {
-      messageDisplay.textContent = "correct";
+      messageDisplay.textContent = "Correct";
       changeAllColor(clickedColor);
       h1.style.backgroundColor = clickedColor;
       reset.textContent = "Play again?";
