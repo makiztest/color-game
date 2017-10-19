@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-  background-color: steelblue;
+  background: steelblue;
   color: white;
   font-weight: normal;
   text-transform: uppercase;
@@ -25,19 +25,42 @@ h1 {
 }
 
 .square {
-  background-color: gold;
+  background: gold;
   width: 30%;
   padding-bottom: 30%;
   margin: 1.66%;
   float: left;
 }
 
+#message {
+  display: inline-block;
+  width: 20%;
+}
+
 #stripe {
-  background-color: white;
+  background: white;
   height: 30px;
   text-align: center;
 }
 
 .selected-mode {
-  background-color: lightblue;
+  background: steelblue;
+  color: white;
+}
+
+button {
+  background: none;
+  color: steelblue;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: inherit;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: steelblue;
+  color: white;
 }
